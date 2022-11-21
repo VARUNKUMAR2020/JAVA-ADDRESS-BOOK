@@ -12,14 +12,15 @@ public class AddressBook {
         contactsList = new ArrayList<>();
         showMenu();
     }
- 
-     // method to Show the choice
+
+    // method to Show the choice
     private static void showMenu() {
         System.out.println("\n: Please Select The Option : ");
         System.out.println("1. Show Contacts.");
         System.out.println("2. Add New Contact.");
         System.out.println("3. Edit Contact.");
-        System.out.println("4. Exit");
+        System.out.println("4. Delete Contact.");
+        System.out.println("5. Exit");
         int selection = input.nextInt();
         switch (selection) {
             case 1:
@@ -29,12 +30,27 @@ public class AddressBook {
             case 3:
                 updateContact();
             case 4:
+                deleteContact();
+            case 5:
                 System.exit(0);
             default:
                 showMenu();
         }
     }
     
+    // method to delete 
+    private static void deleteContact() {
+        System.out.println("Enter the Name to Delete the contact details: ");
+        String name = input.next();
+        for (Contacts contacts : contactsList) {
+            if (contacts.firstName.equals(name)) {
+                contactsList.remove(contacts);
+                System.out.println("Deleted from the Address Book.");
+                showMenu();
+            }
+        }
+    }
+
     // method to show contact:
     private static void showContact() {
         System.out.println("\n: Contacts :");
@@ -45,7 +61,7 @@ public class AddressBook {
         }
         showMenu();
     }
-    
+
     // method to add contact
     private static void addContact() {
         System.out.println("\n: Add new Contact :");
@@ -68,8 +84,8 @@ public class AddressBook {
         System.out.println(contactsList);
         showMenu();
     }
- 
-    //method to update contact
+
+    // method to update contact
     private static void updateContact() {
         System.out.println("\nEnter the Name of the Person to update the contact details: ");
         String name = input.next();
