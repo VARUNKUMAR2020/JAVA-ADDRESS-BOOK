@@ -14,6 +14,34 @@ public class Contacts {
         this.state = state;
         this.zipCode = zipCode;
     }
+    // Setter method --Encapsulation
+    public void setFirstname(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastname(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setPhone(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public void setZipcode(String zipCode) {
+		this.zipCode = zipCode;
+	}
     
     //The method does override or implement a method declared
     @Override
