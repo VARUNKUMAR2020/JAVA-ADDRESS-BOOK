@@ -8,18 +8,18 @@ public class AddressBook {
     private static String firstName, lastName, city, state, email, phoneNumber, zipCode;
 
     public static void main(String[] args) {
-        System.out.println(":: Welcome to Address Book Program ::");
+        System.out.println("----Welcome to Address Book Program----");
         contactsList = new ArrayList<>();
         showMenu();
     }
 
     // method to Show the choice
     private static void showMenu() {
-        System.out.println("\n: Please Select The Option : ");
-        System.out.println("1. Show Contacts.");
-        System.out.println("2. Add New Contact.");
-        System.out.println("3. Edit Contact.");
-        System.out.println("4. Delete Contact.");
+        System.out.println("\n Please Select The Option ");
+        System.out.println("1. Show All Contacts.");
+		System.out.println("2. Add A New Contact.");
+		System.out.println("3. Edit A Contact.");
+		System.out.println("4. Delete A Contact.");
         System.out.println("5. Exit");
         int selection = input.nextInt();
         switch (selection) {
@@ -53,7 +53,7 @@ public class AddressBook {
 
     // method to show contact:
     private static void showContact() {
-        System.out.println("\n: Contacts :");
+        System.out.println("\n--Contacts--");
         int count = 1;
         for (Contacts contacts : contactsList) {
             System.out.println("Contact Number " + count + ": " + contacts + "\n");
@@ -64,7 +64,7 @@ public class AddressBook {
 
     // method to add contact
     private static void addContact() {
-        System.out.println("\n: Add new Contact :");
+        System.out.println("\n--Add new Contact--");
         System.out.print("Enter First Name : ");
         firstName = input.next();
         System.out.print("Enter Last Name : ");
@@ -91,7 +91,7 @@ public class AddressBook {
         String name = input.next();
         for (Contacts contacts : contactsList) {
             if (contacts.firstName.equals(name)) {
-                System.out.println("\n: Add new Contact :\n");
+                System.out.println("\n--Add new Contact--\n");
                 System.out.print("Enter First Name : ");
                 firstName = input.next();
                 System.out.print("Enter Last Name : ");
