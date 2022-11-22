@@ -17,9 +17,9 @@ public class AddressBook {
     private static void showMenu() {
         System.out.println("\n Please Select The Option ");
         System.out.println("1. Show All Contacts.");
-		System.out.println("2. Add A New Contact.");
-		System.out.println("3. Edit A Contact.");
-		System.out.println("4. Delete A Contact.");
+        System.out.println("2. Add A New Contact.");
+        System.out.println("3. Edit A Contact.");
+        System.out.println("4. Delete A Contact.");
         System.out.println("5. Exit");
         int selection = input.nextInt();
         switch (selection) {
@@ -37,8 +37,8 @@ public class AddressBook {
                 showMenu();
         }
     }
-    
-    // method to delete 
+
+    // method to delete
     private static void deleteContact() {
         System.out.println("Enter the Name to Delete the contact details: ");
         String name = input.next();
@@ -80,9 +80,19 @@ public class AddressBook {
         System.out.print("Enter Zip : ");
         zipCode = input.next();
 
-        System.out.println("\n: Contact Added to the Address Book :");
-        System.out.println(contactsList);
-        showMenu();
+        // Each Address Book has a unique Name
+        boolean existing = false;
+        for (Contacts contacts : contactsList) {
+            existing = contacts.firstName.equals(firstName) && contacts.lastName.equals(lastName);
+        }
+        if (!existing) {
+            Contacts contacts = new Contacts(firstName, lastName, phoneNumber, email, city, state, zipCode);
+            contactsList.add(contacts);
+            System.out.println("\n Contact Added to the Address Book :");
+            System.out.println(contacts);
+        } else {
+            System.out.println("\n This Name already exists in the Address Book :");
+        }
     }
 
     // method to update contact
